@@ -1,0 +1,30 @@
+{
+  "name": "super-puper-package",
+  "version": "0.0.1",
+  "description": "best project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "hello": "it is my first script",
+    "show-this-folder": "ls -al",
+    "start": "NODE_ENV=production && node ./index.js",
+    "begin": "./start.sh"
+  },
+  "bugs": {
+    "url": "https://github.com/owner/project/issues",
+    "email": "project@hostname.com"
+  },
+  "keywords": [
+    "super",
+    "project",
+    "node"
+  ],
+  "author": "me",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
