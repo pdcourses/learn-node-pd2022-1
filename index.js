@@ -1,9 +1,15 @@
+const _ = require('lodash');
 const fs = require('fs');
+
+
 const data = fs.readFileSync('./README.md', {
     encoding: 'utf8'
 }
 );
 console.log(data);
+
+console.log(_.sum([1,2,3,4]));
+console.log(_.concat([1,2,3],[10,20]));
 
 
 /*
