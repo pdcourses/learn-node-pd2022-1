@@ -1,34 +1,55 @@
-const _ = require('lodash');
+const os = require('os');
 const fs = require('fs');
+const util = require('util');
+const path = require('path');
 
+/*
+const userHostname = os.hostname();
+console.log(userHostname);
+console.log(os.homedir());
+console.log(os.cpus());
+console.log(os.userInfo());
 
-const data = fs.readFileSync('./README.md', {
-    encoding: 'utf8'
-}
+// чтение файла синхронно
+const text1 = fs.readFileSync('./README.md', {
+    encoding:'utf-8'
+});
+console.log('Sync file reading');
+console.log(text1);
+
+// чтение файла асинхронно
+const text2 = fs.readFileSync('./README.md', 
+    {encoding:'utf-8'},
+    (err, data) => {
+        if(err){console.log('Error.', err);} 
+        else{ console.log('Data', data);}
+    }
 );
-console.log(data);
+console.log('Async file reading');
+console.log(text2);
 
-console.log(_.sum([1,2,3,4]));
-console.log(_.concat([1,2,3],[10,20]));
-
-
+// сделать на промисах чтение файла
 /*
-require('./math');
-require('./math');
-require('./math');
-require('./math');
-require('./math');
+пример
+const util = require('util');
+const fs = require('fs');
+const stat = util.promisify(fs.stat);
+stat('.').then((stats) => { // Do something with `stats`})
+    .catch((error) => {// Handle the error.});
 */
+console.log('Async file reading with promises');
 
+const myReadFile = util.promisify(fs.readFileSync);
 
-//const {sum, pow2} = require('./math');
-/*
-const Math = require('./math');
+myReadFile('./README.md', {encoding:'utf-8'})
+.then(data => console.log('Data', data))
+.catch(err => console.log('Error', err));
 
-const result1 = Math.sum (10,1,4,7,2,12);
-console.log(result1);
-const result2 = Math.sum (1,1);
-console.log(result2);
-const result3 = Math.pow2(3);
-console.log(result3);
-*/
+// console.log('process', process.env);   //переменные окружения
+console.log('__filename', __filename);
+console.log('__dirname', __dirname);
+
+// чтение текущей папки
+const contentDir = fs.readdirSync('.');
+console.log(contentDir)
+

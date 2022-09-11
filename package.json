@@ -5,10 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "hello": "it is my first script",
-    "show-this-folder": "ls -al",
-    "start": "NODE_ENV=production && node ./index.js",
-    "begin": "./start.sh"
+    "start": "node ./index.js",
+    "dev": "nodemon ./index.js"
   },
   "bugs": {
     "url": "https://github.com/owner/project/issues",
