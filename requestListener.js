@@ -25,8 +25,18 @@ const requestListener = (req, res) => {
               res.end("Server error");
             });
         } else {
-          res.statusCode = 404;
-          res.end("Page not found");
+          //res.statusCode = 404;
+          //res.end("Page not found");
+          readFile(path.join(__dirname, "/pages/", '404.html'))
+            .then((data) => {
+              res.statusCode = 404;
+              res.setHeader("Content-Type", "text/html");
+              res.end(data);
+            })
+            .catch((err) => {
+              res.statusCode = 500;
+              res.end("Server error");
+            });
         }
       } else{
         res.statusCode = 403;
